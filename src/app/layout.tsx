@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Providers from "@/providers/providers";
 
 const soraSans = Sora({
   variable: "--font-sora-sans",
@@ -24,11 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${soraSans.variable} ${playfairDisplay.variable} font-sans`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
